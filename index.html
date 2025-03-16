@@ -11,16 +11,50 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <!--  -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                        'navbar-color': 'rgba(198, 189, 189, 1)',
+
+                    }
+                }
+            }
+        }
+    </script>
 
 </head>
 
 <body>
-    <header>
-        <h1 class="text-4xl font-bold">hello world</h1>
-        <h1 class="text-4xl text-blue-500">Using SURGE</h1>
+    <header class="bg-gradient-to-r via-[#C6BDBD] border-b">
+        <nav class="w-11/12 mx-auto flex justify-between p-7 ">
+            <div class="flex items-center">
+                <h1>English</h1>
+                <img src="assets/logo.png" alt="">
+                <h1>জানালা</h1>
+            </div>
+            <div class="flex gap-4">
+                <!-- nav button 1 -->
+                <button class="btn btn-outline btn-primary"><img src="assets/fa-circle-question.png" alt=""> FAQ</button>
+                <button class="btn btn-outline btn-primary"><img src="assets/fa-circle-question.png" alt=""> FAQ</button>
+                <button class="btn btn-outline btn-primary"><img src="assets/fa-circle-question.png" alt=""> FAQ</button>
+            </div>
+        </nav>
     </header>
     <main>
-
+        <section class="flex items-center w-11/12 mx-auto gap-48">
+            <div class="space-y-6">
+                <h1 class="font-bold text-5xl text-[#00BCFF]">English <span class="text-black"> is Easy!!</span></h1>
+                <p class="font-medium text-[#18181B]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div class="w-full">
+                <img src="assets/hero-student.png" alt="">
+            </div>
+        </section>
     </main>
     <footer>
 
