@@ -26,10 +26,11 @@
             </div>
             <div class="flex gap-4">
                 <!-- nav button 1 -->
-                <button id="" class="btn btn-outline btn-primary">
+                <button id="btn1" class="btn btn-outline btn-primary">
                     <i class="fa-solid fa-circle-question"></i>FAQ</button>
-                <button id="" class="btn btn-outline btn-primary">
+                <button id="btn2" class="btn btn-outline btn-primary">
                     <i class="fa-solid fa-book-open"></i>Learn</button>
+
                 <button class="btn btn-outline btn-primary">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
             </div>
@@ -53,7 +54,7 @@
 
 
         <!-- Vocabulary Section -->
-        <section class="my-40 ">
+        <section id="section1" class="my-40 ">
             <!-- title -->
             <h1 class="font-bold text-4xl text-[#00BCFF] flex justify-center mb-9 gap-3">Let's
                 <span class="text-black">Learn Vocabularies</span>
@@ -67,19 +68,20 @@
             </div>
 
             <!-- Lesson container -->
-            <div id="vocabulary-container"
-                class="grid grid-cols-3 gap-6  bg-[#F8F8F8] rounded-3xl mt-10 p-16 space-y-3">
+            <div id="vocabulary-container" class="grid grid-cols-3 gap-6  bg-[#F8F8F8] rounded-3xl mt-10 p-16 space-y-3">
                 <div class="col-span-full text-center space-y-3">
                     <p class="text-[#79716B] text-sm">আপনি এখনো কোন Lesson Select করোনি।</p>
                     <h3 class="font-medium text-4xl">একটি Lesson Select করুন।</h3>
                 </div>
 
+
             </div>
+
         </section>
 
 
         <!-- Questions section -->
-        <section class="my-40">
+        <section id="section2" class="my-40">
             <h1 class="font-bold text-4xl text-[#00BCFF] flex justify-center mb-20 gap-3">Frequently<span
                     class="text-black">Asked Questions</span></h1>
             <div class="space-y-5">
@@ -164,8 +166,10 @@
             </div>
         </section>
     </footer>
+    
     <!-- Js File -->
     <script src="scripts/index.js"></script>
+    <script src="scripts/scrolling.js"></script>
 </body>
 
 </html>
