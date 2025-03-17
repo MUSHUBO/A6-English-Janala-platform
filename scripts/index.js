@@ -6,6 +6,13 @@ function vocabularyBtn() {
         .then((data) => displayData(data.data))
 }
 
+function allVocabulary() {
+    fetch("https://openapi.programming-hero.com/api/words/all")
+        .then((response) => response.json())
+        .then((data) => displayVocabulary(data.data))
+}
+
+
 // {
 //     "id": 101,
 //     "level_no": 1,
@@ -13,21 +20,67 @@ function vocabularyBtn() {
 // }
 
 function displayData(data) {
-    console.log(data);
+    // console.log(data);
+
     // access all btn
     const buttonContainer = document.getElementById('button-container')
-    
-    // api all data
+
+    // All Data API 
     for (let btnData of data) {
-        const btnDiv = document.createElement('div')
+        const btnDiv = document.createElement('div');
+
         btnDiv.innerHTML = `
          <button id="" class="btn btn-outline btn-primary">
-         <i class="fa-solid fa-book-open"></i> Lesson -${btnData.level_no}</button>
+         <i class="fa-solid fa-book-open"></i> Lesson-${btnData.level_no}</button>
         `;
 
         buttonContainer.append(btnDiv);
     }
+
+
 }
 
 
+// {
+//     "id": 5,
+//     "level": 1,
+//     "word": "Eager",
+//     "meaning": "আগ্রহী",
+//     "pronunciation": "ইগার"
+// }
+
+function displayVocabulary(allVocabulary) {
+    // console.log(allVocabulary)
+
+    const vocabularyContainer = document.getElementById('vocabulary-container')
+
+    for (let vocabulary of allVocabulary) {
+        console.log(vocabulary)
+
+        const vocabularyDiv = document.createElement('div');
+        vocabularyDiv.innerHTML = `
+        
+        <div class="card bg-white w-96">
+            <div class="card-body items-center text-center">
+
+                <h2 class="card-title font-bold"> ${vocabulary.word} </h2>
+                <p> Meaning / Pronunciation </p>
+               <h2 class="card-title font-bold"> ${vocabulary.meaning} / ${vocabulary.pronunciation} </h2> 
+
+                <div class="card-actions flex lg:gap-44 mt-10">
+                    <button class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-circle-question"></i> </button>
+                    <button class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-volume-high"></i> </button>
+                </div>
+            </div>
+        </div>
+        
+        `
+
+        vocabularyContainer.append(vocabularyDiv)
+    }
+}
+
+
+
 vocabularyBtn();
+allVocabulary();
