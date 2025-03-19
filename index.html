@@ -7,11 +7,18 @@
     <title>English-Janala</title>
     <!-- Title Logo -->
     <link rel="shortcut icon" href="assets/fa-book-open.png" type="image/x-icon">
-    <!-- fontawsom cdn -->
+    <!-- fontawsom CDN -->
     <script src="https://kit.fontawesome.com/bab4642bab.js" crossorigin="anonymous"></script>
     <!-- DaisyUI CDN -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- style -->
+    <style>
+        .active {
+            background-color: #422AD5;
+            color: white;
+        }
+    </style>
 
 </head>
 
@@ -92,12 +99,13 @@
             </div>
 
 
+            <!-- single card -->
             <!-- Open the modal using ID.showModal() method -->
             <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
             <dialog id="card_details" class="modal modal-bottom sm:modal-middle">
                 <div class="modal-box">
                     <div id="card-container">
-                        
+
                     </div>
                     <div class="modal-action flex justify-start">
                         <form method="dialog">

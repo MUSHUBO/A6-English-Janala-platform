@@ -1,10 +1,20 @@
 console.log("I am connected");
 
+function removeActiveClass(){
+    const activeButtons = document.getElementsByClassName("active");
+    for(let button of activeButtons){
+        button.classList.remove("active")
+    }
+}
+
 // button
 function vocabularyBtn() {
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then((response) => response.json())
-        .then((data) => displayData(data.data))
+        .then((data) => {
+            
+            displayData(data.data)
+        })
 };
 
 // vocabulary
@@ -21,7 +31,15 @@ const loadVocabulary = (level) => {
 
     fetch(url)
         .then(response => response.json())
-        .then(data => displayVocabulary(data.data))
+        .then(data => {
+
+            removeActiveClass()
+            const clickButton = document.getElementById(`btn-primary${level}`);
+            clickButton.classList.add("active")
+            // console.log(clickButton);
+
+            displayVocabulary(data.data);
+        })
 
 };
 
@@ -34,6 +52,7 @@ const loadCard = (vocabularyInfo) => {
         .then(response => response.json())
         .then(data => displayCard(data.data))
 }
+
 
 
 // {
@@ -55,8 +74,8 @@ const loadCard = (vocabularyInfo) => {
 const displayCard = (cardInfo) => {
     console.log(cardInfo)
     document.getElementById("card_details").showModal();
-    const cardContainer =document.getElementById("card-container");
-    cardContainer.innerHTML=`
+    const cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = `
     
     <h2 class="text-2xl font-semibold" >${cardInfo.word}  (<i class="fa-solid fa-microphone-lines"></i>:${cardInfo.pronunciation})</h2>
 
@@ -99,13 +118,12 @@ function displayData(data) {
         const btnDiv = document.createElement('div');
 
         btnDiv.innerHTML = `
-         <button onclick="loadVocabulary(${btnData.level_no})" class="btn btn-outline btn-primary">
+         <button id="btn-primary${btnData.level_no}" onclick="loadVocabulary(${btnData.level_no})" class="btn btn-outline btn-primary">
          <i class="fa-solid fa-book-open"></i> Lesson-${btnData.level_no}</button>
         `;
 
         buttonContainer.append(btnDiv);
     };
-
 
 };
 
