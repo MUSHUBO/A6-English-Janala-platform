@@ -43,9 +43,23 @@
             <div class="space-y-6">
                 <h1 class="font-bold text-5xl text-[#00BCFF]">English <span class="text-black"> is Easy!!</span></h1>
                 <p class="font-medium text-[#18181B]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
-                    আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                    আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
+                </p>
 
-                <button class="btn btn-primary">Get Started</button>
+                <div class="space-y-5">
+                    <label class="input validator">
+                        <input type="input" required placeholder="Enter Your Name" 
+                            minlength="2" maxlength="30" title="" />
+                    </label>
+
+                    <label class="input validator">
+                        <input type="input" required placeholder="password" pattern="[A-Za-z][A-Za-z0-9\-]*"
+                            minlength="2" maxlength="30" title="Only letters, numbers or dash" />
+                    </label>
+
+                </div>
+
+                <button id="login-btn" class="btn btn-primary">Get Started</button>
             </div>
             <div class="w-full">
                 <img src="assets/hero-student.png" alt="">
@@ -68,7 +82,8 @@
             </div>
 
             <!-- Lesson container -->
-            <div id="vocabulary-container" class="grid grid-cols-3 gap-6  bg-[#F8F8F8] rounded-3xl mt-10 p-16 space-y-3">
+            <div id="vocabulary-container"
+                class="grid grid-cols-3 gap-6  bg-[#F8F8F8] rounded-3xl mt-10 p-16 space-y-3">
                 <div class="col-span-full text-center space-y-3">
                     <p class="text-[#79716B] text-sm">আপনি এখনো কোন Lesson Select করোনি।</p>
                     <h3 class="font-medium text-4xl">একটি Lesson Select করুন।</h3>
@@ -166,10 +181,11 @@
             </div>
         </section>
     </footer>
-    
+
     <!-- Js File -->
     <script src="scripts/index.js"></script>
     <script src="scripts/scrolling.js"></script>
+    <script src="scripts/login.js"></script>
 </body>
 
 </html>

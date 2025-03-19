@@ -41,7 +41,7 @@ function displayData(data) {
         const btnDiv = document.createElement('div');
 
         btnDiv.innerHTML = `
-         <button onclick="loadVocabulary(${btnData.level_no})" id="" class="btn btn-outline btn-primary">
+         <button onclick="loadVocabulary(${btnData.level_no})" class="btn btn-outline btn-primary">
          <i class="fa-solid fa-book-open"></i> Lesson-${btnData.level_no}</button>
         `;
 
@@ -84,7 +84,7 @@ function displayVocabulary(allVocabulary) {
         const vocabularyDiv = document.createElement('div');
         vocabularyDiv.innerHTML = `
         
-        <div class="card bg-white w-96">
+        <div class=" bg-white w-96">
             <div class="card-body items-center text-center">
 
                 <h2 class="card-title font-bold"> ${vocabulary.word} </h2>
