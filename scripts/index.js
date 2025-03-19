@@ -1,23 +1,22 @@
 console.log("I am connected");
 
-function removeActiveClass(){
+
+// button selection 
+function removeActiveClass() {
     const activeButtons = document.getElementsByClassName("active");
-    for(let button of activeButtons){
+    for (let button of activeButtons) {
         button.classList.remove("active")
     }
 }
 
-// button
+// button 
 function vocabularyBtn() {
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then((response) => response.json())
-        .then((data) => {
-            
-            displayData(data.data)
-        })
+        .then((data) => displayData(data.data))
 };
 
-// vocabulary
+// vocabulary 
 function allVocabulary() {
     fetch("https://openapi.programming-hero.com/api/words/all")
         .then((response) => response.json())
@@ -169,7 +168,7 @@ function displayVocabulary(allVocabulary) {
                <h2 class="card-title font-bold"> ${vocabulary.meaning} / ${vocabulary.pronunciation} </h2> 
 
                 <div class=" flex lg:gap-36 mt-10">
-                    <button onclick="loadCard(${vocabulary.id})" class="btn btn-info"> Info </button>
+                    <button onclick="loadCard(${vocabulary.id})" class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-circle-question"></i> </button>
                     <button class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-volume-high"></i> </button>
                 </div>
             </div>
@@ -179,6 +178,7 @@ function displayVocabulary(allVocabulary) {
 
         vocabularyContainer.append(vocabularyDiv);
     };
+
 };
 
 
