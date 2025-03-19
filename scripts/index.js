@@ -1,11 +1,13 @@
 console.log("I am connected");
 
+// button
 function vocabularyBtn() {
     fetch("https://openapi.programming-hero.com/api/levels/all")
         .then((response) => response.json())
         .then((data) => displayData(data.data))
 };
 
+// vocabulary
 function allVocabulary() {
     fetch("https://openapi.programming-hero.com/api/words/all")
         .then((response) => response.json())
@@ -13,15 +15,71 @@ function allVocabulary() {
 };
 
 // Vocabulary
-const loadVocabulary= (level) => {
+const loadVocabulary = (level) => {
     const url = `https://openapi.programming-hero.com/api/level/${level}`;
-    // console.log(url)
+    console.log(url)
 
     fetch(url)
-    .then(response=>response.json())
-    .then(data=>displayVocabulary(data.data))
-    
+        .then(response => response.json())
+        .then(data => displayVocabulary(data.data))
+
 };
+
+// single card
+const loadCard = (vocabularyInfo) => {
+    console.log(vocabularyInfo)
+    const url = (`https://openapi.programming-hero.com/api/word/${vocabularyInfo}`)
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => displayCard(data.data))
+}
+
+
+// {
+//     "word": "Eager",
+//     "meaning": "আগ্রহী",
+//     "pronunciation": "ইগার",
+//     "level": 1,
+//     "sentence": "The kids were eager to open their gifts.",
+//     "points": 1,
+//     "partsOfSpeech": "adjective",
+//     "synonyms": [
+//         "enthusiastic",
+//         "excited",
+//         "keen"
+//     ],
+//     "id": 5
+// }
+
+const displayCard = (cardInfo) => {
+    console.log(cardInfo)
+    document.getElementById("card_details").showModal();
+    const cardContainer =document.getElementById("card-container");
+    cardContainer.innerHTML=`
+    
+    <h2 class="text-2xl font-semibold" >${cardInfo.word}  (<i class="fa-solid fa-microphone-lines"></i>:${cardInfo.pronunciation})</h2>
+
+    <div class="my-8">
+        <h4 class="font-semibold">meaning:</h4> 
+        <h4>${cardInfo.meaning}</h4>
+    </div>
+    <div class="">
+        <h4 class="font-semibold">Example:</h4> 
+        <h4>${cardInfo.sentence}</h4>
+    </div>
+    <div class="my-8">
+        <h4>সমার্থক শব্দ গুলো:</h4>
+        <div class="flex gap-4">
+        <h4 class="bg-[#D7E4EF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[0]}</h4>
+        <h4 class="bg-[#D7E4EF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[1]}</h4>
+        <h4 class="bg-[#D7E4EF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[2]}</h4>
+        </div>
+    </div>
+    
+    `;
+
+}
 
 
 // {
@@ -65,10 +123,10 @@ function displayVocabulary(allVocabulary) {
 
     const vocabularyContainer = document.getElementById('vocabulary-container');
 
-    vocabularyContainer.innerHTML="";
-    
-    if(allVocabulary.length==0){
-        vocabularyContainer.innerHTML=`
+    vocabularyContainer.innerHTML = "";
+
+    if (allVocabulary.length == 0) {
+        vocabularyContainer.innerHTML = `
             <div class="col-span-full flex flex-col justify-center items-center text-center space-y-3">
                 <img class="w-[120px]" src="assets/alert-error.png" alt="">
                 <p class="text-[#79716B] text-sm">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
@@ -78,8 +136,9 @@ function displayVocabulary(allVocabulary) {
         return;
     };
 
+
     for (let vocabulary of allVocabulary) {
-        // console.log(vocabulary)
+        // console.log(vocabulary);
 
         const vocabularyDiv = document.createElement('div');
         vocabularyDiv.innerHTML = `
@@ -91,16 +150,16 @@ function displayVocabulary(allVocabulary) {
                 <p> Meaning / Pronunciation </p>
                <h2 class="card-title font-bold"> ${vocabulary.meaning} / ${vocabulary.pronunciation} </h2> 
 
-                <div class="card-actions flex lg:gap-44 mt-10">
-                    <button class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-circle-question"></i> </button>
+                <div class=" flex lg:gap-36 mt-10">
+                    <button onclick="loadCard(${vocabulary.id})" class="btn btn-info"> Info </button>
                     <button class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-volume-high"></i> </button>
                 </div>
             </div>
         </div>
         
-        `
+        `;
 
-        vocabularyContainer.append(vocabularyDiv)
+        vocabularyContainer.append(vocabularyDiv);
     };
 };
 
