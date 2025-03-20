@@ -1,5 +1,14 @@
 console.log("I am connected");
 
+// loading box
+const showBoxLoader = () => {
+    document.getElementById("box-loader").classList.remove("hidden");
+    document.getElementById("vocabulary-container").classList.add("hidden");
+};
+const hideBoxLoader = () => {
+    document.getElementById("box-loader").classList.add("hidden");
+    document.getElementById("vocabulary-container").classList.remove("hidden");
+};
 
 // button selection 
 function removeActiveClass() {
@@ -7,7 +16,7 @@ function removeActiveClass() {
     for (let button of activeButtons) {
         button.classList.remove("active")
     }
-}
+};
 
 // button 
 function vocabularyBtn() {
@@ -25,6 +34,7 @@ function allVocabulary() {
 
 // Vocabulary
 const loadVocabulary = (level) => {
+    showBoxLoader();
     const url = `https://openapi.programming-hero.com/api/level/${level}`;
     console.log(url)
 
@@ -143,6 +153,7 @@ function displayVocabulary(allVocabulary) {
     vocabularyContainer.innerHTML = "";
 
     if (allVocabulary.length == 0) {
+        hideBoxLoader()
         vocabularyContainer.innerHTML = `
             <div class="col-span-full flex flex-col justify-center items-center text-center space-y-3">
                 <img class="w-[120px]" src="assets/alert-error.png" alt="">
@@ -160,16 +171,16 @@ function displayVocabulary(allVocabulary) {
         const vocabularyDiv = document.createElement('div');
         vocabularyDiv.innerHTML = `
         
-        <div class=" bg-white w-96">
-            <div class="card-body items-center text-center">
+        <div class=" bg-white w-96 rounded-xl p-4">
+            <div class="card-body items-center text-center border-1 border-[#C6BDBD] rounded-lg hover:bg-sky-50">
 
                 <h2 class="card-title font-bold"> ${vocabulary.word} </h2>
                 <p> Meaning / Pronunciation </p>
                <h2 class="card-title font-bold"> ${vocabulary.meaning} / ${vocabulary.pronunciation} </h2> 
 
                 <div class=" flex lg:gap-36 mt-10">
-                    <button onclick="loadCard(${vocabulary.id})" class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-circle-question"></i> </button>
-                    <button class="btn bg-[#1A91FF10] h-10 w-10"> <i class="fa-solid fa-volume-high"></i> </button>
+                    <button onclick="loadCard(${vocabulary.id})" class="btn h-10 w-10 "> <i class="fa-solid fa-circle-question"></i> </button>
+                    <button class="btn h-10 w-10"> <i class="fa-solid fa-volume-high"></i> </button>
                 </div>
             </div>
         </div>
@@ -178,7 +189,8 @@ function displayVocabulary(allVocabulary) {
 
         vocabularyContainer.append(vocabularyDiv);
     };
-
+    
+    hideBoxLoader();
 };
 
 
