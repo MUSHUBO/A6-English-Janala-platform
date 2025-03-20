@@ -171,14 +171,14 @@ function displayVocabulary(allVocabulary) {
         const vocabularyDiv = document.createElement('div');
         vocabularyDiv.innerHTML = `
         
-        <div class=" bg-white w-96 rounded-xl p-4">
+        <div class=" bg-white h-full rounded-xl p-4">
             <div class="card-body items-center text-center border-1 border-[#C6BDBD] rounded-lg hover:bg-sky-50">
 
                 <h2 class="card-title font-bold"> ${vocabulary.word} </h2>
                 <p> Meaning / Pronunciation </p>
                <h2 class="card-title font-bold"> ${vocabulary.meaning} / ${vocabulary.pronunciation} </h2> 
 
-                <div class=" flex lg:gap-36 mt-10">
+                <div class=" flex lg:gap-36 gap-14 mt-10">
                     <button onclick="loadCard(${vocabulary.id})" class="btn h-10 w-10 "> <i class="fa-solid fa-circle-question"></i> </button>
                     <button class="btn h-10 w-10"> <i class="fa-solid fa-volume-high"></i> </button>
                 </div>
