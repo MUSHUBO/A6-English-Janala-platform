@@ -1,9 +1,11 @@
 console.log('login add');
 
+
 // login
 const loginBtn = document.getElementById("login-btn")
-    .addEventListener('click', function () {
+    .addEventListener('click', function (event) {
         // console.log("hello btn");
+        event.preventDefault();
 
         const loginName = document.getElementById("login-name").value;
         // console.log(loginName);
@@ -21,6 +23,11 @@ const loginBtn = document.getElementById("login-btn")
                 document.getElementById("section1").classList.remove("hidden");
                 document.getElementById("section2").classList.remove("hidden");
 
+                // input null after login
+                document.getElementById("login-name").value = "";
+                document.getElementById("login-password").value = "";
+
+                // alert("Login successful!");
             } else {
                 alert('Wrong Password. Contact admin to get you Login code.')
             }
@@ -40,6 +47,5 @@ const logoutBtn = document.getElementById("logout-btn")
         document.getElementById("navbar").classList.add("hidden");
         document.getElementById("section1").classList.add("hidden");
         document.getElementById("section2").classList.add("hidden");
-        
-        window.location.reload();
+
     })

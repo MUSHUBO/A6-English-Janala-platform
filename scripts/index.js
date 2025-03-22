@@ -86,23 +86,22 @@ const displayCard = (cardInfo) => {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = `
     
-    
-    <div class="shadow-sm p-4 rounded-xl ">
+    <div class="shadow-sm p-4 rounded-lg">
         <h2 class="text-2xl font-semibold" >${cardInfo.word}  (<i class="fa-solid fa-microphone-lines"></i>:${cardInfo.pronunciation})</h2>
-        <div class="my-6 space-y-2">
+        <div class="mt-5 space-y-2">
             <h4 class="font-semibold">meaning:</h4> 
-            <h4>${cardInfo.meaning}</h4>
+            <h4>${cardInfo.meaning == null ? `অর্থ খুঁজে পাওয়া যায়নি।` : `${cardInfo.meaning}`}</h4>
         </div>
         <div class="my-6 space-y-2">
             <h4 class="font-semibold">Example:</h4> 
             <h4>${cardInfo.sentence}</h4>
         </div>
-        <div class="mb-4 space-y-2">
+        <div class="space-y-2">
             <h4>সমার্থক শব্দ গুলো:</h4>
             <div class="flex gap-4">
-            <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[0]}</h4>
-            <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[1]}</h4>
-            <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[2]}</h4>
+                <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[0] == undefined ? `` : `${cardInfo.synonyms[0]}`}</h4>
+                <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[1] == undefined ? `` : `${cardInfo.synonyms[1]}`}</h4>
+                <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[2] == undefined ? `` : `${cardInfo.synonyms[2]}`}</h4>
             </div>
         </div>
     </div>
@@ -178,7 +177,7 @@ function displayVocabulary(allVocabulary) {
 
                 <h2 class="card-title font-bold"> ${vocabulary.word} </h2>
                 <p> Meaning / Pronunciation </p>
-               <h2 class="card-title font-bold"> ${vocabulary.meaning} / ${vocabulary.pronunciation} </h2> 
+               <h2 class="card-title font-bold"> ${vocabulary.meaning == null ? `অর্থ নেই` : ` ${vocabulary.meaning}`} / ${vocabulary.pronunciation} </h2> 
 
                 <div class=" flex lg:gap-36 md:gap-14 gap-2 mt-10">
                     <button onclick="loadCard(${vocabulary.id})" class="btn h-10 w-10 "> <i class="fa-solid fa-circle-question"></i> </button>
@@ -191,7 +190,7 @@ function displayVocabulary(allVocabulary) {
 
         vocabularyContainer.append(vocabularyDiv);
     };
-    
+
     hideBoxLoader();
 };
 
