@@ -86,22 +86,24 @@ const displayCard = (cardInfo) => {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = `
     
-    <h2 class="text-2xl font-semibold" >${cardInfo.word}  (<i class="fa-solid fa-microphone-lines"></i>:${cardInfo.pronunciation})</h2>
-
-    <div class="my-8">
-        <h4 class="font-semibold">meaning:</h4> 
-        <h4>${cardInfo.meaning}</h4>
-    </div>
-    <div class="">
-        <h4 class="font-semibold">Example:</h4> 
-        <h4>${cardInfo.sentence}</h4>
-    </div>
-    <div class="my-8">
-        <h4>সমার্থক শব্দ গুলো:</h4>
-        <div class="flex gap-4">
-        <h4 class="bg-[#D7E4EF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[0]}</h4>
-        <h4 class="bg-[#D7E4EF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[1]}</h4>
-        <h4 class="bg-[#D7E4EF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[2]}</h4>
+    
+    <div class="shadow-sm p-4 rounded-xl ">
+        <h2 class="text-2xl font-semibold" >${cardInfo.word}  (<i class="fa-solid fa-microphone-lines"></i>:${cardInfo.pronunciation})</h2>
+        <div class="my-6 space-y-2">
+            <h4 class="font-semibold">meaning:</h4> 
+            <h4>${cardInfo.meaning}</h4>
+        </div>
+        <div class="my-6 space-y-2">
+            <h4 class="font-semibold">Example:</h4> 
+            <h4>${cardInfo.sentence}</h4>
+        </div>
+        <div class="mb-4 space-y-2">
+            <h4>সমার্থক শব্দ গুলো:</h4>
+            <div class="flex gap-4">
+            <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[0]}</h4>
+            <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[1]}</h4>
+            <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[2]}</h4>
+            </div>
         </div>
     </div>
     
@@ -171,7 +173,7 @@ function displayVocabulary(allVocabulary) {
         const vocabularyDiv = document.createElement('div');
         vocabularyDiv.innerHTML = `
         
-        <div class=" bg-white h-full rounded-xl p-4">
+        <div class=" bg-white h-full rounded-xl p-4 shadow-xl">
             <div class="card-body items-center text-center border-1 border-[#C6BDBD] rounded-lg hover:bg-sky-50">
 
                 <h2 class="card-title font-bold"> ${vocabulary.word} </h2>

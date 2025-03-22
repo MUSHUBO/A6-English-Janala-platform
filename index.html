@@ -22,9 +22,9 @@
 
 </head>
 
-<body class="">
-    <header id="navbar" class="hidden fixed w-full top-0 left-0 z-50  bg-gradient-to-r via-gray-100 border-b-2 border-[#C6BDBD]">
-        <nav class="lg:w-11/12 mx-auto sm:flex justify-between p-6 ">
+<body id="body">
+    <header id="navbar" class="hidden fixed w-full top-0 left-0 z-50  backdrop-blur-2xl border-b-2 border-[#C6BDBD50]">
+        <nav class="lg:w-11/12 mx-auto sm:flex justify-between p-4">
             <div class="flex items-center text-xl">
                 <h1 class="font-semibold">English</h1>
                 <img src="assets/logo.png" alt="">
@@ -37,7 +37,7 @@
                 <button id="btn2" class="btn btn-outline btn-primary">
                     <i class="fa-solid fa-book-open"></i>Learn</button>
 
-                <button class="btn btn-outline btn-primary">
+                <button id="logout-btn" class="btn btn-outline btn-primary">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</button>
             </div>
         </nav>
@@ -47,7 +47,7 @@
 
         <!-- banner section -->
         <section id="banner" class="lg:flex items-center gap-48">
-            <div id="navbar-container" class="space-y-6 ">
+            <div id="banner-container" class="space-y-6 ">
                 <h1 class="font-bold text-5xl text-[#00BCFF]">English <span class="text-black"> is Easy!!</span></h1>
                 <p class="font-medium text-[#18181B]">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা
                     আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ
@@ -78,7 +78,7 @@
                 </div>
 
             </div>
-            <div id="navbar-img" class="w-full ">
+            <div id="banner-img" class="w-full ">
                 <img src="assets/hero-student.png" alt="">
             </div>
         </section>
@@ -137,7 +137,7 @@
 
 
         <!-- Questions section -->
-        <section id="section2" class="hidden my-40">
+        <section id="section2" class="hidden my-44">
             <h1 class="font-bold text-4xl text-[#00BCFF] flex justify-center mb-20 gap-3 flex-col md:flex-row">Frequently<span
                 class="text-black">Asked Questions</span>
             </h1>
@@ -202,8 +202,8 @@
         
     </main>
 
-    <footer id="footer" class="hidden border-t-2 border-[#FFEBEB] ">
-        <section class="w-11/12 mx-auto sm:flex justify-between items-end my-16">
+    <footer id="footer" class="border-t-2 border-[#FFEBEB] mt-12">
+        <section class="w-11/12 mx-auto sm:flex justify-between items-end my-12">
             <div>
                 <div class="mb-5 flex items-center text-xl">
                     <h1 class="font-semibold">English</h1>
