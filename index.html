@@ -23,8 +23,8 @@
 </head>
 
 <body class="">
-    <header id="navbar" class="hidden fixed w-full top-0 left-0  bg-gradient-to-r via-gray-100 border-b-2 border-[#C6BDBD]">
-        <nav class="lg:w-11/12 mx-auto flex justify-between p-6 ">
+    <header id="navbar" class="hidden fixed w-full top-0 left-0 z-50  bg-gradient-to-r via-gray-100 border-b-2 border-[#C6BDBD]">
+        <nav class="lg:w-11/12 mx-auto sm:flex justify-between p-6 ">
             <div class="flex items-center text-xl">
                 <h1 class="font-semibold">English</h1>
                 <img src="assets/logo.png" alt="">
@@ -87,7 +87,7 @@
         <!-- Vocabulary Section -->
         <section id="section1" class="hidden my-40">
             <!-- title -->
-            <h1 class="font-bold text-4xl text-[#00BCFF] flex justify-center mb-9 gap-3">Let's
+            <h1 class="font-bold text-4xl text-[#00BCFF] flex justify-center mb-9 gap-3 flex-col md:flex-row">Let's
                 <span class="text-black">Learn Vocabularies</span>
             </h1>
 
@@ -105,7 +105,7 @@
 
             <!-- Lesson container -->
             <div id="vocabulary-container"
-                class="grid lg:grid-cols-3 grid-cols-2 gap-6 bg-[#F8F8F8] rounded-3xl mt-10 p-16 space-y-3">
+                class="grid lg:grid-cols-3 grid-cols-1 gap-6 bg-[#F8F8F8] rounded-3xl mt-10 lg:p-16 space-y-3">
                 <!-- null box -->
                 <div class="col-span-full text-center space-y-3">
                     <p class="text-[#79716B] text-sm">আপনি এখনো কোন Lesson Select করোনি।</p>
@@ -138,8 +138,9 @@
 
         <!-- Questions section -->
         <section id="section2" class="hidden my-40">
-            <h1 class="font-bold text-4xl text-[#00BCFF] flex justify-center mb-20 gap-3">Frequently<span
-                    class="text-black">Asked Questions</span></h1>
+            <h1 class="font-bold text-4xl text-[#00BCFF] flex justify-center mb-20 gap-3 flex-col md:flex-row">Frequently<span
+                class="text-black">Asked Questions</span>
+            </h1>
             <div class="space-y-5">
                 <!-- Question 1 -->
                 <div class="collapse collapse-plus bg-[#F8F8F8] border border-base-300">
@@ -202,7 +203,7 @@
     </main>
 
     <footer id="footer" class="hidden border-t-2 border-[#FFEBEB] ">
-        <section class="w-11/12 mx-auto flex justify-between items-end my-16">
+        <section class="w-11/12 mx-auto sm:flex justify-between items-end my-16">
             <div>
                 <div class="mb-5 flex items-center text-xl">
                     <h1 class="font-semibold">English</h1>

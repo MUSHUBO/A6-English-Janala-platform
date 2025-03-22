@@ -178,7 +178,7 @@ function displayVocabulary(allVocabulary) {
                 <p> Meaning / Pronunciation </p>
                <h2 class="card-title font-bold"> ${vocabulary.meaning} / ${vocabulary.pronunciation} </h2> 
 
-                <div class=" flex lg:gap-36 gap-14 mt-10">
+                <div class=" flex lg:gap-36 md:gap-14 gap-2 mt-10">
                     <button onclick="loadCard(${vocabulary.id})" class="btn h-10 w-10 "> <i class="fa-solid fa-circle-question"></i> </button>
                     <button class="btn h-10 w-10"> <i class="fa-solid fa-volume-high"></i> </button>
                 </div>
