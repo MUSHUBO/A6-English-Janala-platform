@@ -81,11 +81,21 @@ const loadCard = (vocabularyInfo) => {
 // }
 
 const displayCard = (cardInfo) => {
-    console.log(cardInfo)
+    // console.log(cardInfo)
+
+    let synonymsButtons = "";
+    if (cardInfo.synonyms.length > 0) {
+        for (const synonym of cardInfo.synonyms) {
+            synonymsButtons += `<button class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${synonym}</button> `;
+        }
+    } else {
+        synonymsButtons = "";
+    }
+
     document.getElementById("card_details").showModal();
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = `
-    
+
     <div class="shadow-sm p-4 rounded-lg">
         <h2 class="text-2xl font-semibold" >${cardInfo.word}  (<i class="fa-solid fa-microphone-lines"></i>:${cardInfo.pronunciation})</h2>
         <div class="mt-5 space-y-2">
@@ -98,10 +108,8 @@ const displayCard = (cardInfo) => {
         </div>
         <div class="space-y-2">
             <h4>সমার্থক শব্দ গুলো:</h4>
-            <div class="flex gap-4">
-                <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[0] == undefined ? `` : `${cardInfo.synonyms[0]}`}</h4>
-                <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[1] == undefined ? `` : `${cardInfo.synonyms[1]}`}</h4>
-                <h4 class="bg-[#EDF7FF] rounded-md text-center px-2 py-1">${cardInfo.synonyms[2] == undefined ? `` : `${cardInfo.synonyms[2]}`}</h4>
+            <div id="synonyms" class="flex gap-4">
+                ${synonymsButtons}
             </div>
         </div>
     </div>
