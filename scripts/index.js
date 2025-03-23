@@ -63,7 +63,6 @@ const loadCard = (vocabularyInfo) => {
 }
 
 
-
 // {
 //     "word": "Eager",
 //     "meaning": "আগ্রহী",
